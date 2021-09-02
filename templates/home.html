@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Members Database</h1>
+<ul>
+{% for item in all %}
+
+    <strong>{{ item.fname | title  }} {{ item.lname| title}}</strong>
+    <small><a href="{% url 'delete' item.pk %}">delete</a> |</small> <small><a href="{% url 'detail' item.pk %}">detail</a> </small>
+    <br>
+    <li>Email: {{ item.email}}</li>
+    <li>Age: {{ item.age }}</li>
+    <hr>
+
+{% endfor %}
+</ul>
+	{% else %}
+<footer>
+	
+
+<a href="{% url 'about' %}">About</a>
+	<a href="{% url 'join' %}">Join Member</a>
+</footer>
+{% endblock content %}

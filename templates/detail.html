@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+	<h1>Full Information </h1>
+	<hr>
+	<li>
+	<p>First name:<strong> {{ object.fname| title}}</strong></p>
+	<p>Last name: <strong>{{ object.lname| title}}</strong></p>
+	<p>Email: {{ object.email}}</p>
+	<p>Age: {{ object.age}}</p>
+		{% if object.address %}
+			<p>Address: {{ object.address| title}}</p>
+		{% else %}
+			<p>Address: ------</p>
+		{% if object.address %}
+			<p>Phone number: {{ object.phone_num}}</p>
+		{% else %}
+				<p>Phone: ------</p>
+
+
+	<p>Date join: {{ object.date_join}}</p>
+<a class="btn btn-outline-primary"  href="{% url 'edit' object.pk %}">Edit</a> |
+<a class="btn btn-outline-danger"  href="{% url 'delete' object.pk %}">Delete</a>
+	<hr>
+<a href="{% url 'home' %}">Go Back</a>
+{% endif %}
+{% endif %}
+</ul>
+{% endblock content %}

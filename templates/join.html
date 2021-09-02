@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Join Today</h1>
+    <br>
+<!--     {% if user.is_authenticated %}} -->
+ <form method="POST" action="">
+        {% csrf_token %}
+
+        
+        <div class="mb-3">
+            <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="First name"  
+            name="fname" value="{{ fname }}">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control"aria-describedby="emailHelp" placeholder="Last name" 
+            name="lname" value="{{ lname }}">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Age" 
+            name="age"  value="{{ age }}">
+          </div>
+        <div class="mb-3">
+          <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Email Address" 
+          name="email" value="{{ email }}">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control"  placeholder="Password" 
+          name="passwd" value="{{ passwd}}">
+        </div>
+<!-- -------add new   forms-->
+        <div class="mb-3">
+            <input type="text" class="form-control"aria-describedby="emailHelp" placeholder="Address(optional)" name='address' value="{{ address }}" 
+            >
+          </div>
+
+          
+  
+        <button type="submit" class="btn btn-primary">SingUp</button>
+      </form>
+<!-- 
+      {% else %}
+      <h1>you cannot add a member</h1>
+
+      <p>
+      Please<a href="{% url 'singup' %}"> Sign up</a> or <a href="{url 'login'}">Login</a> to add a member and try again!</p> -->
+
+
+
+
+
+
+      <a href="{% url 'home' %}">Back</a>
+
+<!-- {% endif %} -->
+{% endblock content %}
